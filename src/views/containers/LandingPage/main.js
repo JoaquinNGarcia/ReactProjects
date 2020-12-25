@@ -40,19 +40,22 @@ const useStyles = makeStyles(theme => ({
 const LandingPage = () => {
 
     const [color, setColor] = useState(false);
-    const [ isLoading, setIsLoading ] = useState(false);
-    const [ goToLogin, setGoToLogin ] = useState(false);
     const [ goToCarList, setGoToCarList ] = useState(false);
-    const [ goToStatistics, setGoToStatistics ] = useState(false);
     const [ goToCatalogue, setGoToCatalogue ] = useState(false);
     const [ goToDashboard, setGoToDashboard ] = useState(false);
-    const [ goToWeather, setGoToWeather ] = useState(false);
     const [ goToDevice, setGoToDevice ] = useState(false);
     const [ goToDocuments, setGoToDocuments ] = useState(false);
-    const [ goToNotFound, setGoToNotFound ] = useState(false);
+    const [ goToFitnessExercises, setGoToFitnessExercises ] = useState(false);
     const [ goToGithubList, setGoToGithubList ] = useState(false);
+    const [ goToLogin, setGoToLogin ] = useState(false);
+    const [ goToMail, setGoToMail ] = useState(false);
+    const [ goToNotFound, setGoToNotFound ] = useState(false);
+    const [ goToStatistics, setGoToStatistics ] = useState(false);
+    const [ goToWeather, setGoToWeather ] = useState(false);
+    const [ isLoading, setIsLoading ] = useState(false);
     
     const classes = useStyles();
+    
     const open = true;
 
     const theme = useTheme();
@@ -66,16 +69,18 @@ const LandingPage = () => {
         console.log('Click: ', innerText);
         setTimeout(() => stopIsLoading(), 1000);
         setIsLoading(true);
-        innerText === 'Login' && setTimeout(() => setGoToLogin(true), 1000); 
         innerText === 'CarList' && setTimeout(() => setGoToCarList(true), 1000);
-        innerText === 'Statistics' && setTimeout(() => setGoToStatistics(true), 1000);
         innerText === 'Catalogue' && setTimeout(() => setGoToCatalogue(true), 1000);
         innerText === 'Dashboard' && setTimeout(() => setGoToDashboard(true), 1000);
-        innerText === 'Weather' && setTimeout(() => setGoToWeather(true), 1000);
         innerText === 'Device' && setTimeout(() => setGoToDevice(true), 1000);
         innerText === 'Documents' && setTimeout(() => setGoToDocuments(true), 1000);
-        innerText === 'NotFound' && setTimeout(() => setGoToNotFound(true), 1000);
+        innerText === 'FitnessExercises' && setTimeout(() => setGoToFitnessExercises(true), 1000);
         innerText === 'GithubList' && setTimeout(() => setGoToGithubList(true), 1000);
+        innerText === 'Login' && setTimeout(() => setGoToLogin(true), 1000); 
+        innerText === 'Mail' && setTimeout(() => setGoToMail(true), 1000);
+        innerText === 'NotFound' && setTimeout(() => setGoToNotFound(true), 1000);
+        innerText === 'Statistics' && setTimeout(() => setGoToStatistics(true), 1000);
+        innerText === 'Weather' && setTimeout(() => setGoToWeather(true), 1000);
     }
 
     // const handleDarkMode = () => {
@@ -87,17 +92,18 @@ const LandingPage = () => {
     return (
         <>
             <NavBarH />
-            { goToLogin && <Redirect to='/login'/> }
             { goToCarList && <Redirect to='/carList'/> }
-            { goToStatistics && <Redirect to='/statistics'/> }
             { goToCatalogue && <Redirect to='/catalogue'/> }
             { goToDashboard && <Redirect to='/dashboard'/> }
-            { goToWeather && <Redirect to='/weather'/> }
             { goToDevice && <Redirect to='/device'/> }
             { goToDocuments && <Redirect to='/documents'/> }
-            { goToNotFound && <Redirect to='/notFound'/> }
+            { goToFitnessExercises && <Redirect to='/documents'/> }
             { goToGithubList && <Redirect to='/githubList'/> }
-            
+            { goToLogin && <Redirect to='/login'/> }
+            { goToMail && <Redirect to='/main'/> }
+            { goToNotFound && <Redirect to='/notFound'/> }
+            { goToStatistics && <Redirect to='/statistics'/> }
+            { goToWeather && <Redirect to='/weather'/> }
             <LandingPageContainer>
                 {/* <SwitchWraper>
                     <Switch id="switch" type="switch" handleOnClick={ handleDarkMode }/>
@@ -129,63 +135,75 @@ const LandingPage = () => {
                         <LandingPageDiv>
                                 <Button
                                     backgroundColor= { styleButton }
-                                    text='Login'
-                                    handleOnClick={ handleOnClick }
                                     color={ styleColor }
-                                />
-                                <Button
-                                    backgroundColor= { styleButton }
+                                    handleOnClick={ handleOnClick }
                                     text='CarList'
-                                    handleOnClick={ handleOnClick }
-                                    color={ styleColor }
                                 />
                                 <Button
                                     backgroundColor= { styleButton }
-                                    text='Statistics'
-                                    handleOnClick={ handleOnClick }
                                     color={ styleColor }
-                                />
-                                <Button
-                                    backgroundColor= { styleButton }
+                                    handleOnClick={ handleOnClick }
                                     text='Catalogue'
-                                    handleOnClick={ handleOnClick }
-                                    color={ styleColor }
                                 />
                                 <Button
                                     backgroundColor= { styleButton }
+                                    color={ styleColor }
+                                    handleOnClick={ handleOnClick }
                                     text='Dashboard'
-                                    handleOnClick={ handleOnClick }
-                                    color={ styleColor }
-                                />
-                                <Button
-                                    backgroundColor= { styleButton }
-                                    text='Weather'
-                                    handleOnClick={ handleOnClick }
-                                    color={ styleColor }
                                 />
                                 <Button
                                     backgroundColor= { styleButton } 
+                                    color={ styleColor }
+                                    handleOnClick={ handleOnClick }
                                     text='Device'
-                                    handleOnClick={ handleOnClick }
-                                    color={ styleColor }
                                 />
                                 <Button
                                     backgroundColor= { styleButton }
+                                    color={ styleColor }
+                                    handleOnClick={ handleOnClick }
                                     text='Documents'
-                                    handleOnClick={ handleOnClick }
-                                    color={ styleColor }
                                 />
                                 <Button
                                     backgroundColor= { styleButton }
-                                    text='NotFound'
-                                    handleOnClick={ handleOnClick }
                                     color={ styleColor }
+                                    handleOnClick={ handleOnClick }
+                                    text='FitnessExercises'
                                 />
                                 <Button
                                     backgroundColor= { styleButton }
+                                    color={ styleColor }
+                                    handleOnClick={ handleOnClick }
                                     text='GithubList'
-                                    handleOnClick={ handleOnClick }
+                                />
+                                <Button
+                                    backgroundColor= { styleButton }
                                     color={ styleColor }
+                                    handleOnClick={ handleOnClick }
+                                    text='Login'
+                                />
+                                <Button
+                                    backgroundColor= { styleButton }
+                                    color={ styleColor }
+                                    handleOnClick={ handleOnClick }
+                                    text='Mail'
+                                />
+                                <Button
+                                    backgroundColor= { styleButton }
+                                    color={ styleColor }
+                                    handleOnClick={ handleOnClick }
+                                    text='NotFound'
+                                />
+                                <Button
+                                    backgroundColor= { styleButton }
+                                    color={ styleColor }
+                                    handleOnClick={ handleOnClick }
+                                    text='Statistics'
+                                />
+                                <Button
+                                    backgroundColor= { styleButton }
+                                    color={ styleColor }
+                                    handleOnClick={ handleOnClick }
+                                    text='Weather'
                                 />
                                 {
                                     isLoading &&

@@ -1,7 +1,7 @@
 import React from 'react';
-import {
+// import {
 
-} from 'prop-types';
+// } from 'prop-types';
 import {
     NotFoundContainer
 } from './styled';

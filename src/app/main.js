@@ -13,6 +13,7 @@ import Catalogue from '../views/containers/Catalogue/main';
 import Dashboard from '../views/containers/Dashboard';
 import Device from '../views/containers/Device/main';
 import Documents from '../views/containers/Documents/main';
+import FitnessExercises from '../views/containers/FitnessExercises/main';
 import GithubList from '../views/containers/GithubList/main';
 import LandingPage from '../views/containers/LandingPage/main';
 import Login from '../views/containers/Login/main';
@@ -88,6 +89,10 @@ const App = () => {
 					<Route 
 						path='/githubList'
 						component={ GithubList }
+					/>
+					<Route 
+						path='/fitnessExercises'
+						component={ FitnessExercises }
 					/>
 					{/* Puedo elegir si quiero informar que ese path no existe (opcion 1) o puedo redirigir al path que yo desee (opcion 2) */}
 					{/* Opcion 1 */}

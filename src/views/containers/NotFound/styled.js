@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const NotFoundContainer = styled.div `
+export const NotFoundContainer = styled.div`
     display: flex;
     height: 100%;
     max-height: 100%;
