@@ -171,7 +171,7 @@ const Device = () => {
 
                 Version -> <Label> { engineVersion } </Label>
                 'ESPECIFICACIONES DE SU DISPOSITIVO: ',
-                        `${ isMobileOnly
+                        { isMobileOnly
                             ? '• Tipo: Celular'
                             : isTablet
                                 ? '• Tipo: Tablet'
@@ -181,10 +181,10 @@ const Device = () => {
                                         ? '• Tipo: SmartTV'
                                         : isConsole
                                             ? '• Tipo: Consola'
-                                            : '• Tipo: Desconocido' }`,
-                        `• Sistema Operativo: ${ osName } ${ osVersion }`,
-                        `• Navegador: ${ browserName } ${ browserVersion }`,
-                        `• Marca y modelo: ${ mobileVendor !== 'none' ? mobileVendor : 'n/d' } - ${ mobileModel !== 'none' ? mobileModel : 'n/d' }`
+                                            : '• Tipo: Desconocido' },
+                        • Sistema Operativo: { osName } { osVersion }`,
+                        • Navegador: { browserName } { browserVersion }`,
+                        • Marca y modelo: { mobileVendor !== 'none' ? mobileVendor : 'n/d' } - { mobileModel !== 'none' ? mobileModel : 'n/d' }`
         </DeviceContainer>
     );
 };
