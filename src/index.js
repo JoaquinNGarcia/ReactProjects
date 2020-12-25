@@ -1,17 +1,48 @@
+// import * as serviceWorker from './serviceWorker';
+//import GithubList from '../views/containers/GithubList/main';
+
+import App from './app';
+import { ConnectedRouter } from 'react-router-redux';
+import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {
+	BrowserRouter,
+	Redirect,
+	Route,
+	Switch
+} from 'react-router-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// import reducer from '../core/GitHubInfo/reducer';
+// import createSagaMiddleware from 'redux-saga';
+// import reducer from '../core/GitHubInfo/reducer';
+// import rootSaga from '../core/GitHubInfo/saga';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+import { createStore, applyMiddleware } from 'redux'; //applyMiddleware: conecta el middleware al store.
+import rootReducer from './core/reducer.root';
+import createSagaMiddleware from 'redux-saga'; //creo un middleware
+import rootSaga from './core/sagas.root';
+
+//import Error404 from './views/containers/Error404';
+//import { ReduxSaga } from './ReduxSaga'; //Dudoso, borrar
+//import { store } from './core/store.config';
+//import './index.css';
+//import * as serviceWorker from './serviceWorker';
+
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+//const action = (type, payload) => store.dispatch({ type, payload })
+sagaMiddleware.run(rootSaga); //Comienza el saga.
+
+function render() {
+	ReactDOM.render(
+		<Provider store={ store }>
+			<App/>
+		</Provider>,
+		document.getElementById('root')
+	);
+}
+
+render()
+store.subscribe(render)
+// registerServiceWorker();
