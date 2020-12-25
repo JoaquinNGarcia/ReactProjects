@@ -13,6 +13,8 @@ import {
 	Switch
 } from 'react-router-dom';
 
+//test
+
 // import reducer from '../core/GitHubInfo/reducer';
 // import createSagaMiddleware from 'redux-saga';
 // import reducer from '../core/GitHubInfo/reducer';
