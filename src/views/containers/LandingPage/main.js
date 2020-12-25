@@ -97,7 +97,7 @@ const LandingPage = () => {
             { goToDashboard && <Redirect to='/dashboard'/> }
             { goToDevice && <Redirect to='/device'/> }
             { goToDocuments && <Redirect to='/documents'/> }
-            { goToFitnessExercises && <Redirect to='/documents'/> }
+            { goToFitnessExercises && <Redirect to='/fitnessExercises'/> }
             { goToGithubList && <Redirect to='/githubList'/> }
             { goToLogin && <Redirect to='/login'/> }
             { goToMail && <Redirect to='/main'/> }
@@ -123,12 +123,12 @@ const LandingPage = () => {
                         DarkMode
                     </DarkModeButton>
                 </ThemeProvider> */}
-                <ThemeProvider>
+                {/* <ThemeProvider>
                     <DarkModeButton
                         theme={ theme }
                         text='Login'
                     />
-                </ThemeProvider>
+                </ThemeProvider> */}
                 <LandingPageContent>
                     <LandingPageLower>
                         <Welcome>¡BIENVENIDO!</Welcome>
